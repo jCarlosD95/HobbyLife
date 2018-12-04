@@ -1,6 +1,6 @@
 <?php
-  session_start();
->
+    session_start();
+?>
 
 <!doctype html>
 <html lang="en">
@@ -97,7 +97,7 @@
           <div class="col-md-4">
             <h2>Manage Organizations</h2>
             <p>Oversee and Edit your organizations!</p>
-            <p><a class="btn btn-secondary" href="#" role="button">Go! &raquo;</a></p>
+            <p><a class="btn btn-secondary" href="manageorg.php" role="button">Go! &raquo;</a></p>
           </div>
         </div>
 

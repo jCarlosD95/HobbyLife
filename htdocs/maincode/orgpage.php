@@ -1,6 +1,6 @@
 <?php
-  session_start();
->
+    session_start();
+?>
 
 <!doctype html>
 <html lang="en">
@@ -74,34 +74,38 @@
 
     <main role="main">
 
-      <!-- Main jumbotron for a primary marketing message or call to action -->
+      
       <div class="jumbotron">
         <div class="container">
-          <h1 class="display-3">Welcome to HobbyLife!</h1>
+          <h1 class="display-3"><?php include 'includes/dbh.inc.php';
+                                    if(!$conn){
+                                        die("Connection Failed: " . mysqli_connect_error());
+                                    }
+                                    
+                                    $sql = "SELECT * FROM organizations WHERE '".$_GET['org_id']."' = org_id";
+                                    $result = mysqli_query($conn, $sql);
+                                    $row = mysqli_fetch_assoc($result);
+                                    echo $row['org_name'];
+                                    ?></h1>
 
         </div>
       </div>
 
       <div class="container">
         <!-- Example row of columns -->
-        <div class="row">
-          <div class="col-md-4">
-            <h2>Organization List</h2>
-            <p>Query for org list here.</p>
-          </div>
-          <div class="col-md-4">
-            <h2>Create An Organization</h2>
-            <p>Setup your very own Organization!</p>
-            <p><a class="btn btn-secondary" href="orgcreate.php" role="button">Go! &raquo;</a></p>
-          </div>
-          <div class="col-md-4">
-            <h2>Manage Organizations</h2>
-            <p>Oversee and Edit your organizations!</p>
-            <p><a class="btn btn-secondary" href="#" role="button">Go! &raquo;</a></p>
-          </div>
-        </div>
-
-        <hr>
+        <?php
+            //$sql = "SELECT * FROM organizations WHERE '".$_SESSION['u_id']."' = owner_id";
+            //$result = mysqli_query($conn, $sql);
+        ?>
+        <tr><p>Organization's Name: <?php echo $row['org_name']?></p>
+            <td> 
+                <button class="btn btn-primary btn-lg" type="submit" name = "submit" onClick = >Edit</button>
+            </td>
+        </tr>
+        <tr><p>Organization's Address: <?php echo $row['address']?></p></tr>
+        <tr><p>Organization's Owner: <?php echo $row['owner_name']?></p></tr>
+        
+        
 
       </div> <!-- /container -->
 
