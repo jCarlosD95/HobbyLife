@@ -1,3 +1,7 @@
+<?php
+    session_start();
+?>
+
 <!doctype html>
 <html lang="en">
   <head>
@@ -21,26 +25,26 @@
   </head>
 
   <body class="text-center">
-    <form class="form-group">
+    <form class="form-group" action = "includes/orgcreate.inc.php" method = "POST">
       <h1 class="h3 mb-3 font-weight-normal">Enter your information in the fields below</h1>
       <div class = "row justify-content-center">
             <div class = "col-md-4">
                 <label for="inputorgname" class="sr-only">Org Name</label>
-                <input type="org_name" id="inputorgname" class="form-control" placeholder="Organization's Name" required autofocus>
+                <input type="org_name" id="inputorgname" name = "org_name" class="form-control" placeholder="Organization's Name" required autofocus>
             </div>
         </div>
         <div style = "padding-top: 10px"></div>
         <div class = "row justify-content-center">
             <div class = "col-md-4">
                 <label for="inputaddress" class="sr-only">Address</label>
-                <input type="address" id="inputaddress" class="form-control" placeholder="Address" required>
+                <input type="address" id="inputaddress" name = "org_address" class="form-control" placeholder="Address" required>
             </div>
         </div>
         <div style = "padding-top: 10px"></div>
         <div class = "row justify-content-center">
             <div class = "col-md-4">
                 <label for="inputowner" class="sr-only">Owner</label>
-                <input type="Owner" id="inputowner" class="form-control" placeholder="Owner" required>
+                <input type="Owner" id="inputowner" name = "org_owner" class="form-control" placeholder="Owner" required>
             </div>
         </div>
         <!--
@@ -60,7 +64,7 @@
         </div>
 -->
         <div style = "padding-top: 10px"></div>
-      <button class="btn btn-primary btn-lg" type="submit">Submit</button>
+      <button class="btn btn-primary btn-lg" type="submit" name = "submit">Submit</button>
       <p class="mt-5 mb-3 text-muted">&copy; 2017-2018</p>
     </form>
   </body>
