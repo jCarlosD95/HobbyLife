@@ -1,7 +1,7 @@
 <?php
 
 if(isset($_POST['submit'])) {
-    include_once 'dbh.in.php';
+    include_once 'dbh.inc.php';
     
     $first = mysqli_real_escape_string($conn, $_POST['firstname']);
     $last  = mysqli_real_escape_string($conn, $_POST['lastname']);
@@ -19,13 +19,13 @@ if(isset($_POST['submit'])) {
         exit();
     }else{
         //Hashing the password to make it unrecognizable
-        $hashedpwd = password_hash($pass, PASSWORD_DEFAULT);
+        //$hashedpwd = password_hash($pass, PASSWORD_DEFAULT);
         //Insert the user into the database
-        $sql = "INSERT INTO users (user_first, user_last, user_email, username,
-         user_pass) VALUES ('$first', '$last', '$email', '$username', '$hashedpwd');";
+        $sql = "INSERT INTO users (user_first, user_last, user_email, username, user_pass) VALUES ('$first', '$last', '$email', '$username', '$pass');";
 
         mysqli_query($conn, $sql);
         header("Location: ../signup.php?signup=success");
+        exit();
     }
 }else{
     header("Location: ../signup.php");

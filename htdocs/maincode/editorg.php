@@ -1,4 +1,4 @@
-<?php
+<?php   
     session_start();
 ?>
 
@@ -11,7 +11,7 @@
     <meta name="author" content="">
     <link rel="icon" href="../../../../favicon.ico">
 
-    <title>Signin to HobbyLife</title>
+    <title>Signup for HobbyLife</title>
 
     <!-- Bootstrap core CSS -->
     <link href="../../dist/css/bootstrap.min.css" rel="stylesheet">
@@ -25,27 +25,23 @@
   </head>
 
   <body class="text-center">
-    <form class="form-group" action = "includes/login.inc.php" method = "POST">
-      <h1 class="h3 mb-3 font-weight-normal">Please sign in</h1>
+    <form class="form-group" action = "includes/editorg.inc.php?org_id=<?php echo $_GET['org_id']?>" method = "POST">
+      <h1 class="h3 mb-3 font-weight-normal">What information would you like to change?</h1>
       <div class = "row justify-content-center">
             <div class = "col-md-4">
-                <label for="inputEmail" class="sr-only">Email address</label>
-                <input type="email" id="inputEmail" name = "email" class="form-control" placeholder="Email address" required>
+                <label for="inputfname" class="sr-only">Organization Name: </label>
+                <input type="first_name" id="inputfname" name = "org_name" class="form-control" placeholder = "Organization Name" required autofocus>
             </div>
         </div>
         <div style = "padding-top: 10px"></div>
         <div class = "row justify-content-center">
             <div class = "col-md-4">
-                <label for="inputPassword" class="sr-only">Password</label>
-                <input type="password" id="inputPassword" name = "password" class="form-control" placeholder="Password" required>
+                <label for="inputlname" class="sr-only">Address</label>
+                <input type="last_name" id="inputlname" name = "address" class="form-control" placeholder="Address" required>
             </div>
         </div>
         <div style = "padding-top: 10px"></div>
-        
-      </div>
-      <button class="btn btn-primary btn-md" type="submit" name = "submit">Login</button>
-      <h1 class="h5 mb-2 font-weight-normal">Or if you don't have an account</h1>
-      <a class="btn btn-primary btn-md" href="signup.php">Sign Up</a>
+      <button class="btn btn-primary btn-lg" type="submit" name = "submit">Change</button>
       <p class="mt-5 mb-3 text-muted">&copy; 2017-2018</p>
     </form>
   </body>
