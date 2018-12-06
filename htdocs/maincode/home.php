@@ -56,17 +56,17 @@
             </div>
           </li>
         </ul>
-        <form class="form-inline my-2 my-lg-0">
+        <form class="form-inline my-2 my-lg-0" action="search.php" method="get">
             <div class="input-group mb-3">
                 <div class="input-group-prepend">
-                  <button class="btn btn-outline-secondary dropdown-toggle" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Select One</button>
+                  <button class="btn btn-outline-secondary dropdown-toggle" name="search_for" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Select One</button>
                   <div class="dropdown-menu">
                     <a class="dropdown-item" href="#">User</a>
                     <a class="dropdown-item" href="#">Organization</a>
                     <a class="dropdown-item" href="#">Event</a>
                   </div>
                 </div>
-          <input class="form-control mr-sm-2" type="text" placeholder="Search" aria-label="Search">
+          <input class="form-control mr-sm-2" name="query" type="text" placeholder="Search" aria-label="Search">
           <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
         </form>
       </div>
