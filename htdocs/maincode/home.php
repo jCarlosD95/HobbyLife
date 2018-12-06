@@ -1,8 +1,7 @@
 <?php
     session_start();
 ?>
-
-<!doctype html>
+ <!doctype html>
 <html lang="en">
   <head>
     <meta charset="utf-8">
@@ -10,33 +9,29 @@
     <meta name="description" content="">
     <meta name="author" content="">
     <link rel="icon" href="../../../../favicon.ico">
-
-    <title>HobbyLife</title>
-
-    <!-- Bootstrap core CSS -->
+     <title>HobbyLife</title>
+     <!-- Bootstrap core CSS -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
     <link href="../../dist/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
-
-    <!-- Custom styles for this template -->
+     <!-- Custom styles for this template -->
     <link href="jumbotron.css" rel="stylesheet">
     
   </head>
-
-  <body>
+   <body>
       
-
-    <nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark">
+     <nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark">
       <a class="navbar-brand" href="#">HobbyLife!</a>
       <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsExampleDefault" aria-controls="navbarsExampleDefault" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
       </button>
-
-      <div class="collapse navbar-collapse" id="navbarsExampleDefault">
+       <div class="collapse navbar-collapse" id="navbarsExampleDefault">
         <ul class="navbar-nav mr-auto">
           <li class="nav-item active">
-            <a class="nav-link" href="home.php">Home <span class="sr-only">(current)</span></a>
+		  
+		  <!-- Hey Logan! I'm confused here. Won't this file path only work on your computer? -->
+            <a class="nav-link" href="C:\Users\Logan Leone\Desktop\FSU\DataBases\Group Project\index.html">Home <span class="sr-only">(current)</span></a>
           </li>
           <!--
           <li class="nav-item">
@@ -71,18 +66,14 @@
         </form>
       </div>
     </nav>
-
-    <main role="main">
-
-      <!-- Main jumbotron for a primary marketing message or call to action -->
+     <main role="main">
+       <!-- Main jumbotron for a primary marketing message or call to action -->
       <div class="jumbotron">
         <div class="container">
           <h1 class="display-3">Welcome to HobbyLife!</h1>
-
-        </div>
+         </div>
       </div>
-
-      <div class="container">
+       <div class="container">
         <!-- Example row of columns -->
         <div class="row">
           <div class="col-md-4">
@@ -97,21 +88,16 @@
           <div class="col-md-4">
             <h2>Manage Organizations</h2>
             <p>Oversee and Edit your organizations!</p>
-            <p><a class="btn btn-secondary" href="manageorg.php" role="button">Go! &raquo;</a></p>
+            <p><a class="btn btn-secondary" href="#" role="button">Go! &raquo;</a></p>
           </div>
         </div>
-
-        <hr>
-
-      </div> <!-- /container -->
-
-    </main>
-
-    <footer class="container">
+         <hr>
+       </div> <!-- /container -->
+     </main>
+     <footer class="container">
       <!--<p>&copy; Company 2017-2018</p>-->
     </footer>
-
-    <!-- Bootstrap core JavaScript
+     <!-- Bootstrap core JavaScript
     ================================================== -->
     <!-- Placed at the end of the document so the pages load faster -->
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
