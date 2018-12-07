@@ -56,7 +56,7 @@
             </div>
           </li>
         </ul>
-        <form class="form-inline my-2 my-lg-0" action="search.php" method="get">
+        <form class="form-inline my-2 my-lg-0" action="orgsearch.php" method="get">
             <div class="input-group mb-3">
                 <div class="input-group-prepend">
                   <button class="btn btn-outline-secondary dropdown-toggle" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Select One</button>

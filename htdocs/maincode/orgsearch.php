@@ -91,7 +91,13 @@
                 die("Connection Failed: " . mysqli_connect_error());
             }
 
-            $sql = "SELECT * FROM users WHERE '".$_GET['query']."' = org_name";
+			
+			//$sql1 = SELECT * FROM organizations WHERE GET['query'] is contained in org_name
+			//$sql2 = SELECT * FROM organizations WHERE GET['query'] is contained in tags
+			//$sql3 = Aggregate the queries in sql 1 and 2.
+			
+
+            $sql = "SELECT * FROM organizations WHERE '".$_GET['query']."' LIKE org_name";
             $result = mysqli_query($conn, $sql);
 
             if(mysqli_num_rows($result) < 1){

@@ -56,7 +56,7 @@
             </div>
           </li>
         </ul>
-        <form class="form-inline my-2 my-lg-0" action="search.php" method="get">
+        <form class="form-inline my-2 my-lg-0">
             <div class="input-group mb-3">
                 <div class="input-group-prepend">
                   <button class="btn btn-outline-secondary dropdown-toggle" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Select One</button>
@@ -66,7 +66,7 @@
                     <a class="dropdown-item" href="#">Event</a>
                   </div>
                 </div>
-          <input class="form-control mr-sm-2" name="query" type="text" placeholder="Search" aria-label="Search">
+          <input class="form-control mr-sm-2" type="text" placeholder="Search" aria-label="Search">
           <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
         </form>
       </div>
@@ -77,41 +77,55 @@
       
       <div class="jumbotron">
         <div class="container">
-          <h1 class="display-3">Your Organizations</h1>
+          <h1 class="display-3"><?php include 'includes/dbh.inc.php';
+                                    if(!$conn){
+                                        die("Connection Failed: " . mysqli_connect_error());
+                                    }
+                                    
+                                    $sql = "SELECT * FROM organizations WHERE '".$_GET['org_id']."' = org_id";
+                                    $result = mysqli_query($conn, $sql);
+                                    $row = mysqli_fetch_assoc($result);
+                                    echo $row['org_name'];
+                                    ?></h1>
 
         </div>
       </div>
-
       <div class="container">
         <!-- Example row of columns -->
-        <?php
-            include_once 'includes/dbh.inc.php';
+        <div class="row">
+          <div class="col-md-4">
+            <?php
+                //$sql = "SELECT * FROM organizations WHERE '".$_SESSION['u_id']."' = owner_id";
+                //$result = mysqli_query($conn, $sql);
+            ?>
+            <tr><p>Organization's Name: <?php echo $row['org_name']?></p></tr>
+            <tr><p>Organization's Address: <?php echo $row['address']?></p></tr>
+            <tr><p>Organization's Owner: <?php echo $row['owner_name']?></p></tr>
+            <tr><p>Organization's Members: <?php 
+                
+                $sql2    = "SELECT user_id
+                            FROM user_org
+                            WHERE org_id = '".$_GET['org_id']."'";
+                $result2 = mysqli_query($conn, $sql2);
 
-            if(!$conn){
-                die("Connection Failed: " . mysqli_connect_error());
-            }
-
-            $sql = "SELECT * FROM users WHERE '".$_GET['query']."' = org_name";
-            $result = mysqli_query($conn, $sql);
-
-            if(mysqli_num_rows($result) < 1){
-                //They don't have any orgs
-                echo "There are no organizations";
-            }elseif(mysqli_num_rows($result) > 0){
-                while($row = mysqli_fetch_assoc($result)){
+                while($row2 = mysqli_fetch_assoc($result2)){
+                    $sql3 = "SELECT * FROM users WHERE user_id = '".$row2['user_id']."'";
+                    $result3 = mysqli_query($conn, $sql3);
+                    $row3 = mysqli_fetch_assoc($result3);
                     ?>
-
-                    <tr style = "width:100%">
-                        <?php echo '<a href=orgpage.php?org_id=' . $row['org_id'] . '">' . $row['org_name'] .'</a><br>'; ?>
-                        
-                    </tr>
+                    <div><?php echo $row3['user_first'];
+                               echo ' ';
+                               echo $row3['user_last'];?></div>
                     <?php
                 }
-            }?>
-        
-        
 
-      </div> <!-- /container -->
+                         
+                         ?></p></tr>
+        </div>
+          <div class="col-md-4">
+          <?php echo '<a href=editorg.php?org_id=' . $row['org_id'] . '" class ="btn btn-primary-active" role="button"> Edit</a><br>'; ?>
+          <!--<a href="editorg.php?org_id=" class="btn btn-primary active" role="button" aria-pressed="true">Edit</a>-->
+          </div>
 
     </main>
 
