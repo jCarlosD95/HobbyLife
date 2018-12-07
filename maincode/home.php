@@ -86,8 +86,8 @@
         <!-- Example row of columns -->
         <div class="row">
           <div class="col-md-4">
-            <h2>Organization List</h2>
-            <p>Query for org list here.</p>
+            <!-- <h2>Organization List</h2>
+            <p>Query for org list here.</p> -->
           </div>
           <div class="col-md-4">
             <h2>Create An Organization</h2>
