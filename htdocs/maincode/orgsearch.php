@@ -109,7 +109,7 @@
                     ?>
 
                     <tr style = "width:100%">
-                        <?php echo '<a href=orgpage.php?org_id=' . $row['org_id'] . '">' . $row['org_name'] .'</a><br>'; ?>
+                        <?php echo '<a href=orgpage2.php?org_id=' . $row['org_id'] . '">' . $row['org_name'] .'</a><br>'; ?>
                         
                     </tr>
                     <?php

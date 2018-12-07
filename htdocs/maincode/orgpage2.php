@@ -107,7 +107,6 @@
                             FROM user_org
                             WHERE org_id = '".$_GET['org_id']."'";
                 $result2 = mysqli_query($conn, $sql2);
-
                 while($row2 = mysqli_fetch_assoc($result2)){
                     $sql3 = "SELECT * FROM users WHERE user_id = '".$row2['user_id']."'";
                     $result3 = mysqli_query($conn, $sql3);
@@ -118,13 +117,12 @@
                                echo $row3['user_last'];?></div>
                     <?php
                 }
-
                          
                          ?></p></tr>
         </div>
           <div class="col-md-4">
-          <?php echo '<a href=editorg.php?org_id=' . $row['org_id'] . '" class ="btn btn-primary-active" role="button"> Edit</a><br>'; ?>
-          <!--<a href="editorg.php?org_id=" class="btn btn-primary active" role="button" aria-pressed="true">Edit</a>-->
+          <?php echo '<a href=includes/joinorg.inc.php?org_id=' . $row['org_id'] . '" class ="btn btn-primary-active" role="button"> Join This Org</a><br>'; ?>
+          <?php echo '<a href=includes/leaveorg.inc.php?org_id=' . $row['org_id'] . '" class ="btn btn-primary-active" role="button"> Leave This Org</a><br>'; ?>
           </div>
 
     </main>
