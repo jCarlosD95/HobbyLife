@@ -56,7 +56,7 @@
             </div>
           </li>
         </ul>
-        <form class="form-inline my-2 my-lg-0" action="search.php" method="get">
+        <form class="form-inline my-2 my-lg-0" action="orgsearch.php" method="get">
             <div class="input-group mb-3">
                 <div class="input-group-prepend">
                   <button class="btn btn-outline-secondary dropdown-toggle" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Select One</button>
@@ -96,8 +96,9 @@
 			//$sql2 = SELECT * FROM organizations WHERE GET['query'] is contained in tags
 			//$sql3 = Aggregate the queries in sql 1 and 2.
 			
-
-            $sql = "SELECT * FROM organizations WHERE '".$_GET['query']."' LIKE org_name";
+			
+			
+            $sql = "SELECT * FROM organizations WHERE org_name LIKE '%".$_GET['query']."%'";
             $result = mysqli_query($conn, $sql);
 
             if(mysqli_num_rows($result) < 1){
