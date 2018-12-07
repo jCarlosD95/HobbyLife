@@ -56,7 +56,7 @@
             </div>
           </li>
         </ul>
-        <form class="form-inline my-2 my-lg-0" action="search.php" method="get">
+        <form class="form-inline my-2 my-lg-0">
             <div class="input-group mb-3">
                 <div class="input-group-prepend">
                   <button class="btn btn-outline-secondary dropdown-toggle" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Select One</button>
@@ -66,42 +66,50 @@
                     <a class="dropdown-item" href="#">Event</a>
                   </div>
                 </div>
-          <input class="form-control mr-sm-2" name="query" type="text" placeholder="Search" aria-label="Search">
+          <input class="form-control mr-sm-2" type="text" placeholder="Search" aria-label="Search">
           <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
-			</div>
-		</form>
+        </form>
+      </div>
     </nav>
 
     <main role="main">
 
-      <!-- Main jumbotron for a primary marketing message or call to action -->
+      
       <div class="jumbotron">
         <div class="container">
-          <h1 class="display-3">Welcome to HobbyLife!</h1>
+          <h1 class="display-3">Your Organizations</h1>
 
         </div>
       </div>
 
       <div class="container">
         <!-- Example row of columns -->
-        <div class="row">
-          <div class="col-md-4">
-            <h2>Organization List</h2>
-            <p>Query for org list here.</p>
-          </div>
-          <div class="col-md-4">
-            <h2>Create An Organization</h2>
-            <p>Setup your very own Organization!</p>
-            <p><a class="btn btn-secondary" href="orgcreate.php" role="button">Go! &raquo;</a></p>
-          </div>
-          <div class="col-md-4">
-            <h2>Manage Organizations</h2>
-            <p>Oversee and Edit your organizations!</p>
-            <p><a class="btn btn-secondary" href="manageorg.php" role="button">Go! &raquo;</a></p>
-          </div>
-        </div>
+        <?php
+            include_once 'includes/dbh.inc.php';
 
-        <hr>
+            if(!$conn){
+                die("Connection Failed: " . mysqli_connect_error());
+            }
+
+            $sql = "SELECT * FROM organizations WHERE '".$_SESSION['u_id']."' = owner_id";
+            $result = mysqli_query($conn, $sql);
+
+            if(mysqli_num_rows($result) < 1){
+                //They don't have any orgs
+                echo "You aren't the owner of any organizations";
+            }elseif(mysqli_num_rows($result) > 0){
+                while($row = mysqli_fetch_assoc($result)){
+                    ?>
+
+                    <tr style = "width:100%">
+                        <?php echo '<a href=orgpage.php?org_id=' . $row['org_id'] . '">' . $row['org_name'] .'</a><br>'; ?>
+                        
+                    </tr>
+                    <?php
+                }
+            }?>
+        
+        
 
       </div> <!-- /container -->
 

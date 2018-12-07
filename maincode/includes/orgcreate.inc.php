@@ -21,10 +21,10 @@ if(isset($_POST['submit'])) {
         //Hashing the password to make it unrecognizable
         //$hashedpwd = password_hash($pass, PASSWORD_DEFAULT);
         //Insert the user into the database
-        $sql = "INSERT INTO organizations (org_name, address, owner_id, owner_name) VALUES ('$name', '$address', '$_SESSION['u_id']', '$owner');";
+        $sql = "INSERT INTO organizations (org_name, address, owner_id, owner_name) VALUES ('$name', '$address', '".$_SESSION['u_id']."', '$owner');";
 
         mysqli_query($conn, $sql);
-        header("Location: ../orgcreate.php?orgcreate=success");
+        header("Location: ../home.php?orgcreate=success");
         exit();
     }
 }else{
